@@ -1,6 +1,6 @@
-# xxxxxx [![CircleCI](https://circleci.com/gh/shelfio/xxxxxx/tree/master.svg?style=svg)](https://circleci.com/gh/shelfio/xxxxxx/tree/master)![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+# Shelf/bem [![CircleCI](https://app.circleci.com/pipelines/github/shelfio/bem)](https://circleci.com/gh/shelfio/xxxxxx/tree/master)![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
-> xxxxxx description
+Wrapper around BEM for CSS
 
 ## Install
 
