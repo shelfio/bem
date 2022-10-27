@@ -8,14 +8,10 @@
   },
   "include": ["src/index.ts"],
   "exclude": [
-    "**/stories/**",
-    "scripts",
     ".idea",
     "__test__",
-    ".storybook",
     ".husky",
     "**/*.test.*",
-    "**/*.stories.*",
     "./lib",
     "packages/**/lib",
     "**/node_modules/**"
