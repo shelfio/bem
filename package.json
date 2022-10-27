@@ -1,7 +1,7 @@
 {
   "name": "@shelf/bem",
   "version": "0.0.0",
-  "description": "bem helper",
+  "description": "Wrapper around BEM for CSS",
   "license": "MIT",
   "author": {
     "name": "Vlad Holubiev",
