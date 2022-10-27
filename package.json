@@ -1,6 +1,6 @@
 {
   "name": "@shelf/bem",
-  "version": "0.0.0",
+  "version": "3.0.1",
   "description": "Wrapper around BEM for CSS",
   "license": "MIT",
   "author": {
