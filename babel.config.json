@@ -1,0 +1,6 @@
+{
+  "extends": "@shelf/babel-config/frontend-library",
+  "presets": [
+    "minify"
+  ]
+}

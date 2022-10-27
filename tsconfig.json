@@ -1,8 +1,19 @@
 {
-  "extends": "@shelf/tsconfig/backend",
+  "extends": "@shelf/tsconfig/frontend",
   "compilerOptions": {
-    "strict": true
+    "declaration": true,
+    "target": "esnext",
+    "strict": true,
+    "noEmit": false,
   },
-  "exclude": ["node_modules"],
-  "include": ["src"]
+  "include": ["src/index.ts"],
+  "exclude": [
+    ".idea",
+    "__test__",
+    ".husky",
+    "**/*.test.*",
+    "./lib",
+    "packages/**/lib",
+    "**/node_modules/**"
+  ]
 }
