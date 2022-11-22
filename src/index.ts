@@ -1,5 +1,5 @@
 import type {BemCn, BemItem, BemMods, Block} from 'bem-cn';
-import bemCn, {setup} from 'bem-cn';
+import {setup} from 'bem-cn';
 import {has, isArray, isEmpty, isString, uniq} from './helpers';
 
 export type BemModifier = string | boolean | undefined | BemModifier[];
@@ -95,4 +95,4 @@ const blazeHelper = (
 const b = (bemBlock: BemBlock, element = '', modifier: BemModifier = ''): string =>
   blazeHelper(bemBlock as BemModify, element, modifier)?.toString() ?? '';
 
-export {createBlock, b, blazeHelper, bemCn};
+export {createBlock, b, blazeHelper};
