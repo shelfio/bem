@@ -10,12 +10,14 @@
   },
   "main": "lib",
   "types": "lib/index.d.ts",
+  "module": "lib/es/index.js",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "rm -rf lib/ && yarn build:types && yarn build:code",
+    "build": "rm -rf lib/ && yarn build:types && yarn build:code && yarn build:es",
     "build:code": "babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' && find ./lib -name '*.test.d.ts' -delete",
+    "build:es": "tsc -p tsconfig.es.json --declarationDir lib",
     "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
     "coverage": "yarn test --coverage",
     "lint": "yarn lint:ci --fix",
