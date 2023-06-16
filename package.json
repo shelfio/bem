@@ -9,7 +9,8 @@
     "url": "https://shelf.io"
   },
   "main": "lib/index.js",
-  "module": "lib/es/index.js",
+  "module": "lib/index.es.js",
+  "exports": "./lib/index.es.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
