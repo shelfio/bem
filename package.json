@@ -8,9 +8,9 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
+  "exports": "./lib/index.es.js",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
-  "exports": "./lib/index.es.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
@@ -24,7 +24,7 @@
     "lint:ci": "eslint . --ext .js,.ts,.json",
     "prepack": "yarn build",
     "size": "size-limit",
-    "test": "TZ=UTC jest src",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "type-check": "tsc --noEmit"
   },
   "lint-staged": {
@@ -40,6 +40,7 @@
   },
   "prettier": "@shelf/prettier-config",
   "jest": {
+    "preset": "ts-jest/presets/default-esm",
     "coverageThreshold": {
       "global": {
         "branches": 93,
@@ -70,6 +71,7 @@
     "lint-staged": "13.2.2",
     "prettier": "2.8.8",
     "size-limit": "8.2.4",
+    "ts-jest": "29.1.0",
     "typescript": "4.9.5"
   },
   "engines": {
@@ -81,7 +83,7 @@
   "size-limit": [
     {
       "path": "lib/index.js",
-      "limit": "2.85 KB"
+      "limit": "2.242 KB"
     }
   ]
 }
