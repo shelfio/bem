@@ -6,5 +6,5 @@
     "noEmit": false,
     "declarationDir": "lib"
   },
-  "include": ["src/index.ts"]
+  "include": ["src"]
 }
