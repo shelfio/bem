@@ -17,6 +17,7 @@ it('should not work with null and undefined', () => {
 
 it('should return bem object', () => {
   const block = createBlock('Warthog');
+
   expect(block).toBeInstanceOf(Function);
   expect(block.toString()).toBe('Warthog');
 });
@@ -91,10 +92,4 @@ it('should return classname without id if not match in object', () => {
   const block = createBlock('Eft', cssModule);
 
   expect(block()).toBe('Eft');
-});
-
-it('should return bem object', () => {
-  const block = createBlock('Warthog');
-  expect(block).toBeInstanceOf(Function);
-  expect(block.toString()).toBe('Warthog');
 });

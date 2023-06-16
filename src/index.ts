@@ -1,5 +1,5 @@
-import type {BemSettings, Block} from 'bem-cn';
 import {setup} from 'bem-cn';
+import type {BemSettings, Block} from 'bem-cn';
 
 const defaultSettings: BemSettings = {
   el: '__',
