@@ -8,24 +8,23 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
-  "main": "lib",
+  "main": "lib/index.js",
   "module": "lib/es/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "rm -rf lib/ && yarn build:types && yarn build:code && yarn build:es",
-    "build:code": "babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' && find ./lib -name '*.test.d.ts' -delete",
-    "build:es": "tsc -p tsconfig.es.json --declarationDir lib",
-    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
+    "build": "rm -rf lib/ && yarn build:types && yarn build:code",
+    "build:code": "node esbuild.mjs",
+    "build:types": "tsc --emitDeclarationOnly",
     "coverage": "yarn test --coverage",
     "lint": "yarn lint:ci --fix",
     "lint:ci": "eslint . --ext .js,.ts,.json",
     "prepack": "yarn build",
+    "size": "size-limit",
     "test": "TZ=UTC jest src",
-    "type-check": "tsc --noEmit",
-    "size": "size-limit"
+    "type-check": "tsc --noEmit"
   },
   "lint-staged": {
     "*.{html,md,yml}": [
@@ -56,6 +55,7 @@
     "@babel/cli": "7.19.3",
     "@babel/core": "7.22.5",
     "@shelf/babel-config": "1.2.0",
+    "@shelf/esbuild-config": "0.2.0",
     "@shelf/eslint-config": "2.22.3",
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "0.0.9",
