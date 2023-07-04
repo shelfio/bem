@@ -8,9 +8,13 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
-  "exports": "./lib/index.es.js",
+  "exports": {
+    "types": "./lib/index.d.ts",
+    "import": "./lib/index.esm.js",
+    "require": "./lib/index.js"
+  },
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"

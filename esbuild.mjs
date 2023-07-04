@@ -9,7 +9,7 @@ await Promise.all(
           splitting: false,
           format,
           packages: format === 'esm' ? 'external' : undefined,
-          entryNames: format === 'esm' ? '[name].es' : '[name]',
+          entryNames: format === 'esm' ? '[name].esm' : '[name]',
         },
       })
   )
