@@ -8,7 +8,7 @@ await Promise.all(
         config: {
           splitting: false,
           format,
-          packages: format === 'esm' ? 'external' : undefined,
+          packages: undefined,
           entryNames: format === 'esm' ? '[name].esm' : '[name]',
         },
       })
