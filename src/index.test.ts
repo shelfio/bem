@@ -83,7 +83,7 @@ it('should return class of BEM with dynamic modifier', () => {
   const block = createBlock('Eft');
   const modifier = 'temp';
 
-  expect(block('element', {[modifier]: true}).toString()).toBe('Eft__element, Eft__element--temp');
+  expect(block('element', {[modifier]: true})).toBe('Eft__element, Eft__element--temp');
 });
 
 it('should return classname without id if not match in object', () => {
