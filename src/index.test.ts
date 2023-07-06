@@ -1,4 +1,4 @@
-import {createBlock} from './index';
+import {b, createBlock} from './index';
 
 it('should not work with null and undefined', () => {
   try {
@@ -56,6 +56,23 @@ it('should return block class with cssModule', () => {
   expect(block()).toBe('Hedgehog_index');
 });
 
+it('should helper to allow passing modifiers as array', () => {
+  const block = createBlock('nav');
+
+  const isActive = true,
+    isDisabled = false,
+    modifier = 'custom';
+  const dynamicModifiers = [isActive && 'active', isDisabled && 'disabled', modifier];
+
+  expect(b(block)).toBe('nav');
+  expect(b(block, 'item')).toBe('nav__item');
+  expect(b(block, 'item', 'active')).toBe('nav__item nav__item--active');
+  expect(b(block, 'item', ['active', 'disabled'])).toBe(
+    'nav__item nav__item--active nav__item--disabled'
+  );
+  expect(b(block, 'item', dynamicModifiers)).toBe('nav__item nav__item--active nav__item--custom');
+});
+
 it('should return class of BEM with element with cssModule', () => {
   const cssModule = {
     Drake__element: 'Drake__element_id2',
@@ -83,7 +100,7 @@ it('should return class of BEM with dynamic modifier', () => {
   const block = createBlock('Eft');
   const modifier = 'temp';
 
-  expect(block('element', {[modifier]: true})).toBe('Eft__element, Eft__element--temp');
+  expect(block('element', {[modifier]: true})).toBe('Eft__element Eft__element--temp');
 });
 
 it('should return classname without id if not match in object', () => {
