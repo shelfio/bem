@@ -30,7 +30,7 @@ it('return classname when no modifiers provided', () => {
 it('should return classname with element', () => {
   const block = createBlock('Drake');
 
-  expect(block('element').toString()).toBe('Drake__element');
+  expect(block('element')).toBe('Drake__element');
 });
 
 it('should return classname with modifiers only', () => {
@@ -77,6 +77,13 @@ it('should return class of BEM with element with modifier and with cssModule', (
   expect(block('element', {modifier: true}).toString()).toBe(
     'Eft__element_id Eft__element--modifier_id2'
   );
+});
+
+it('should return class of BEM with dynamic modifier', () => {
+  const block = createBlock('Eft');
+  const modifier = 'temp';
+
+  expect(block('element', {[modifier]: true}).toString()).toBe('Eft__element, Eft__element--temp');
 });
 
 it('should return classname without id if not match in object', () => {
