@@ -8,10 +8,13 @@ const defaultSettings: BemSettings = {
 };
 
 const block = setup(defaultSettings);
-export function createBlock(parentClass: string, styleModule?: Record<string, string>): Block {
-  if (typeof styleModule === 'undefined') {
-    return block(parentClass);
-  }
+export function createBlock(parentClass: string, styleModule?: Record<string, string>) {
+  const bem =
+    typeof styleModule === 'undefined'
+      ? block(parentClass)
+      : setup({...defaultSettings, classMap: styleModule})(parentClass);
 
-  return setup({...defaultSettings, classMap: styleModule})(parentClass);
+  return function (...args: Parameters<Block>) {
+    return bem(...args).toString();
+  };
 }

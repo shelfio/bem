@@ -15,21 +15,16 @@ it('should not work with null and undefined', () => {
   }
 });
 
-it('should return bem object', () => {
+it('should return bem classname', () => {
   const block = createBlock('Warthog');
 
-  expect(block).toBeInstanceOf(Function);
-  expect(block.toString()).toBe('Warthog');
+  expect(block()).toBe('Warthog');
 });
 
 it('return classname when no modifiers provided', () => {
   const block = createBlock('Hedgehog');
 
-  expect(block().toString()).toBe('Hedgehog');
-});
-
-it('should return class name', () => {
-  expect(createBlock('Warthog').toString()).toBe('Warthog');
+  expect(block()).toBe('Hedgehog');
 });
 
 it('should return classname with element', () => {
@@ -41,14 +36,14 @@ it('should return classname with element', () => {
 it('should return classname with modifiers only', () => {
   const block = createBlock('Badger');
 
-  expect(block({['']: 'modifier'}).toString()).toBe('Badger Badger--modifier');
-  expect(block({modifier: true}).toString()).toBe('Badger Badger--modifier');
+  expect(block({['']: 'modifier'})).toBe('Badger Badger--modifier');
+  expect(block({modifier: true})).toBe('Badger Badger--modifier');
 });
 
 it('should return classname with element and modifiers', () => {
   const block = createBlock('Eft');
 
-  expect(block('element', {modifier: true}).toString()).toBe('Eft__element Eft__element--modifier');
+  expect(block('element', {modifier: true})).toBe('Eft__element Eft__element--modifier');
 });
 
 it('should return block class with cssModule', () => {
