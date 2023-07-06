@@ -88,3 +88,10 @@ it('should return classname without id if not match in object', () => {
 
   expect(block()).toBe('Eft');
 });
+
+it('should return bem block', () => {
+  const block = createBlock('Eft');
+
+  expect(block.b().toString()).toBe('Eft');
+  expect(block.b('element').mix(['button']).toString()).toBe('Eft__element button');
+});

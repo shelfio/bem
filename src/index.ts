@@ -14,7 +14,10 @@ export function createBlock(parentClass: string, styleModule?: Record<string, st
       ? block(parentClass)
       : setup({...defaultSettings, classMap: styleModule})(parentClass);
 
-  return function (...args: Parameters<Block>) {
+  function bemBlock(...args: Parameters<Block>) {
     return bem(...args).toString();
-  };
+  }
+  bemBlock.b = bem;
+
+  return bemBlock;
 }
