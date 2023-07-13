@@ -4,6 +4,6 @@
     "@shelf/eslint-config/typescript"
   ],
   "rules": {
-    "complexity": 0
+    "multiline-ternary": "off"
   }
 }

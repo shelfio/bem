@@ -12,15 +12,14 @@ $ yarn add @shelf/bem
 
 ```js
 
-import {b, createBlock} from '@shelf/bem'
+import {createBlock} from '@shelf/bem'
 
-
-const block = createBlock('nav-item');
+const b = createBlock('nav-item');
 
 function NavLink({isActive, href, icon, name}) {
-  return <li className={b(block, '', [isActive && 'active')}> // .nav-item .nav-item--active
-        <Icon icon={icon} className={b(block, 'icon')} /> // .nav-link__icon
-        <a href={href} className={b(block, 'link')}>{name}</a> // .nav-item__link
+  return <li className={b({active: isActive})}> // .nav-item .nav-item--active
+        <Icon icon={icon} className={b('icon')} /> // .nav-link__icon
+        <a href={href} className={b('link')}>{name}</a> // .nav-item__link
     </li>
 }
 ```
