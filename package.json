@@ -9,6 +9,7 @@
     "url": "https://shelf.io"
   },
   "sideEffects": false,
+  "type": "module",
   "exports": {
     "types": "./lib/index.d.ts",
     "import": "./lib/index.esm.js",
