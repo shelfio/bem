@@ -1,6 +1,6 @@
 {
   "name": "@shelf/bem",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Wrapper around BEM for CSS",
   "license": "MIT",
   "author": {
@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "build": "rm -rf lib/ && yarn build:types && yarn build:code",
-    "build:code": "node esbuild.mjs",
+    "build:code": "node esbuild.js",
     "build:types": "tsc --emitDeclarationOnly",
     "coverage": "yarn test --coverage",
     "lint": "yarn lint:ci --fix",
