@@ -8,6 +8,7 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
+  "sideEffects": false,
   "exports": {
     "types": "./lib/index.d.ts",
     "import": "./lib/index.esm.js",
