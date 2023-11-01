@@ -7,7 +7,7 @@ const defaultSettings: BemSettings = {
   modValue: '',
 };
 
-type BemModifier = string | (string | boolean | undefined | null)[];
+export type BemModifier = string | (string | boolean | undefined | null)[];
 
 const block = setup(defaultSettings);
 export function createBlock(parentClass: string, styleModule?: Record<string, string>) {
