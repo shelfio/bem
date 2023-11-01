@@ -1,13 +1,13 @@
-import * as bemCn from 'bem-cn';
+import {setup} from 'bem-cn';
 import type {BemSettings, Block} from 'bem-cn';
-
-const {setup} = bemCn;
 
 const defaultSettings: BemSettings = {
   el: '__',
   mod: '--',
   modValue: '',
 };
+
+type BemModifier = string | (string | boolean | undefined | null)[];
 
 const block = setup(defaultSettings);
 export function createBlock(parentClass: string, styleModule?: Record<string, string>) {
@@ -28,7 +28,7 @@ export function b(block: ReturnType<typeof createBlock>, element: string): strin
 export function b(
   block: ReturnType<typeof createBlock>,
   element: string,
-  modifiers: string | (string | boolean)[]
+  modifiers: Parameters<typeof toBemModifiers>[0]
 ): string;
 /** @deprecated Use the return function of createBlock */
 export function b(...args: any[]) {
@@ -45,7 +45,7 @@ export function b(...args: any[]) {
   return bemBlock(element, toBemModifiers(modifiers));
 }
 
-function toBemModifiers(modifiers: string | (string | boolean)[]) {
+function toBemModifiers(modifiers: BemModifier) {
   if (Array.isArray(modifiers)) {
     return modifiers
       .filter(mod => typeof mod === 'string')

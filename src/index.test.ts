@@ -61,8 +61,8 @@ it('should helper to allow passing modifiers as array', () => {
 
   const isActive = true,
     isDisabled = false,
+    isHidden = undefined,
     modifier = 'custom';
-  const dynamicModifiers = [isActive && 'active', isDisabled && 'disabled', modifier];
 
   expect(b(block)).toBe('nav');
   expect(b(block, 'item')).toBe('nav__item');
@@ -70,7 +70,14 @@ it('should helper to allow passing modifiers as array', () => {
   expect(b(block, 'item', ['active', 'disabled'])).toBe(
     'nav__item nav__item--active nav__item--disabled'
   );
-  expect(b(block, 'item', dynamicModifiers)).toBe('nav__item nav__item--active nav__item--custom');
+  expect(
+    b(block, 'item', [
+      isActive && 'active',
+      isDisabled && 'disabled',
+      modifier,
+      isHidden && 'hidden',
+    ])
+  ).toBe('nav__item nav__item--active nav__item--custom');
 });
 
 it('should return class of BEM with element with cssModule', () => {
