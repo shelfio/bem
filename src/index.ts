@@ -31,6 +31,7 @@ export function b(
   modifiers: Parameters<typeof toBemModifiers>[0]
 ): string;
 /** @deprecated Use the return function of createBlock */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function b(...args: any[]) {
   const [bemBlock, element, modifiers] = args;
 
