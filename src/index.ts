@@ -43,7 +43,13 @@ export function b(...args: any[]) {
     return bemBlock(element);
   }
 
-  return bemBlock(element, toBemModifiers(modifiers));
+  const mods = toBemModifiers(modifiers);
+
+  if (!element) {
+    return bemBlock(mods);
+  }
+
+  return bemBlock(element, mods);
 }
 
 function toBemModifiers(modifiers: BemModifier) {

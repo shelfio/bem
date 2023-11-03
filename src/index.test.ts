@@ -70,6 +70,8 @@ it('should helper to allow passing modifiers as array', () => {
   expect(b(block, 'item', ['active', 'disabled'])).toBe(
     'nav__item nav__item--active nav__item--disabled'
   );
+
+  expect(b(block, '', ['active', 'disabled'])).toBe('nav nav--active nav--disabled');
   expect(
     b(block, 'item', [
       isActive && 'active',
