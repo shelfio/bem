@@ -2,9 +2,11 @@
   "extends": "@shelf/tsconfig/frontend",
   "compilerOptions": {
     "declaration": true,
-    "target": "esnext",
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
     "noEmit": false,
-    "declarationDir": "lib"
+    "outDir": "lib"
   },
+  "exclude": ["node_modules", "src/**/*.test.*"],
   "include": ["src"]
 }

@@ -10,21 +10,14 @@
   },
   "sideEffects": false,
   "type": "module",
-  "exports": {
-    "types": "./lib/index.d.ts",
-    "import": "./lib/index.esm.js",
-    "require": "./lib/index.js"
-  },
-  "main": "lib/index.js",
-  "module": "lib/index.esm.js",
+  "exports": "./lib/index.js",
+  "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "rm -rf lib/ && yarn build:types && yarn build:code",
-    "build:code": "node esbuild.js",
-    "build:types": "tsc --emitDeclarationOnly",
+    "build": "rm -rf lib/ && tsc",
     "coverage": "yarn test --coverage",
     "lint": "yarn lint:ci --fix",
     "lint:ci": "eslint . --ext .js,.ts,.json",
@@ -54,7 +47,6 @@
     "bem-cn": "3.0.1"
   },
   "devDependencies": {
-    "@shelf/esbuild-config": "0.2.0",
     "@shelf/eslint-config": "3.10.0",
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "0.0.11",

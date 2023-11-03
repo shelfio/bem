@@ -1,4 +1,4 @@
-import {setup} from 'bem-cn';
+import bemCM from 'bem-cn';
 import type {BemSettings, Block} from 'bem-cn';
 
 const defaultSettings: BemSettings = {
@@ -9,12 +9,12 @@ const defaultSettings: BemSettings = {
 
 export type BemModifier = string | (string | boolean | undefined | null)[];
 
-const block = setup(defaultSettings);
+const block = bemCM.setup(defaultSettings);
 export function createBlock(parentClass: string, styleModule?: Record<string, string>) {
   const bem =
     typeof styleModule === 'undefined'
       ? block(parentClass)
-      : setup({...defaultSettings, classMap: styleModule})(parentClass);
+      : bemCM.setup({...defaultSettings, classMap: styleModule})(parentClass);
 
   function bemBlock(...args: Parameters<Block>) {
     return bem(...args).toString();
