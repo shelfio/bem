@@ -35,13 +35,14 @@
   "jest": {
     "coverageThreshold": {
       "global": {
-        "branches": 93,
+        "branches": 95,
         "functions": 100,
         "lines": 100,
         "statements": 100
       }
     },
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "resolver": "ts-jest-resolver"
   },
   "dependencies": {
     "bem-cn": "3.0.1"
@@ -59,6 +60,7 @@
     "prettier": "3.1.0",
     "size-limit": "11.0.1",
     "ts-jest": "29.1.1",
+    "ts-jest-resolver": "2.0.1",
     "typescript": "5.3.3"
   },
   "engines": {
