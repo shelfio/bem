@@ -44,9 +44,6 @@
     "preset": "ts-jest",
     "resolver": "ts-jest-resolver"
   },
-  "dependencies": {
-    "bem-cn": "3.0.1"
-  },
   "devDependencies": {
     "@shelf/eslint-config": "3.12.0",
     "@shelf/prettier-config": "1.0.0",
