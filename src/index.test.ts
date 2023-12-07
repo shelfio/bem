@@ -1,4 +1,4 @@
-import {b, createBlock} from './index';
+import {b, createBlock} from './index.js';
 
 it('should not work with null and undefined', () => {
   try {
