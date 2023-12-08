@@ -1,18 +1,48 @@
-import {b, createBlock} from './index';
+import {b, block, createBlock, setup} from './index.js';
 
-it('should not work with null and undefined', () => {
+it('should not work with non empty string block', () => {
   try {
     // @ts-expect-error
     createBlock(undefined);
   } catch (error: any) {
-    expect(error.toString()).toBe('Error: Block name should be a string');
+    expect(error.toString()).toBe('Error: Block name should be non-empty string');
   }
   try {
     // @ts-expect-error
     createBlock(null);
   } catch (error: any) {
-    expect(error.toString()).toBe('Error: Block name should be a string');
+    expect(error.toString()).toBe('Error: Block name should be non-empty string');
   }
+  try {
+    createBlock('');
+  } catch (error: any) {
+    expect(error.toString()).toBe('Error: Block name should be non-empty string');
+  }
+});
+
+it('should export block with default settings', () => {
+  const b = block('button');
+
+  expect(b('text')).toBe('button__text');
+  expect(b('text', ['active'])).toBe('button__text button__text--active');
+});
+
+it('should setup block with custom split settings', () => {
+  const block = setup({el: '**', mod: '++'});
+  const b = block('button');
+
+  expect(b('text')).toBe('button**text');
+  expect(b('text', ['active'])).toBe('button**text button**text++active');
+  expect(b({disabled: true})).toBe('button button++disabled');
+});
+
+it('should setup block with custom namespace', () => {
+  const block = setup({ns: 'shelf_'});
+  const b = block('button');
+
+  expect(b('text')).toBe('shelf_button__text');
+  expect(b('text', ['active'])).toBe('shelf_button__text shelf_button__text--active');
+  expect(b({disabled: true})).toBe('shelf_button shelf_button--disabled');
 });
 
 it('should return bem classname', () => {
@@ -36,7 +66,6 @@ it('should return classname with element', () => {
 it('should return classname with modifiers only', () => {
   const block = createBlock('Badger');
 
-  expect(block({['']: 'modifier'})).toBe('Badger Badger--modifier');
   expect(block({modifier: true})).toBe('Badger Badger--modifier');
 });
 
@@ -66,7 +95,6 @@ it('should helper to allow passing modifiers as array', () => {
 
   expect(b(block)).toBe('nav');
   expect(b(block, 'item')).toBe('nav__item');
-  expect(b(block, 'item', 'active')).toBe('nav__item nav__item--active');
   expect(b(block, 'item', ['active', 'disabled'])).toBe(
     'nav__item nav__item--active nav__item--disabled'
   );
@@ -82,16 +110,6 @@ it('should helper to allow passing modifiers as array', () => {
   ).toBe('nav__item nav__item--active nav__item--custom');
 });
 
-it('should return class of BEM with element with cssModule', () => {
-  const cssModule = {
-    Drake__element: 'Drake__element_id2',
-  };
-
-  const block = createBlock('Drake', cssModule);
-
-  expect(block('element').toString()).toBe('Drake__element_id2');
-});
-
 it('should return class of BEM with element with modifier and with cssModule', () => {
   const cssModule = {
     Eft__element: 'Eft__element_id',
@@ -100,9 +118,7 @@ it('should return class of BEM with element with modifier and with cssModule', (
 
   const block = createBlock('Eft', cssModule);
 
-  expect(block('element', {modifier: true}).toString()).toBe(
-    'Eft__element_id Eft__element--modifier_id2'
-  );
+  expect(block('element', {modifier: true})).toBe('Eft__element_id Eft__element--modifier_id2');
 });
 
 it('should return class of BEM with dynamic modifier', () => {
@@ -110,21 +126,4 @@ it('should return class of BEM with dynamic modifier', () => {
   const modifier = 'temp';
 
   expect(block('element', {[modifier]: true})).toBe('Eft__element Eft__element--temp');
-});
-
-it('should return classname without id if not match in object', () => {
-  const cssModule = {
-    some: 'some_id',
-  };
-
-  const block = createBlock('Eft', cssModule);
-
-  expect(block()).toBe('Eft');
-});
-
-it('should return bem block', () => {
-  const block = createBlock('Eft');
-
-  expect(block.b().toString()).toBe('Eft');
-  expect(block.b('element').mix(['button']).toString()).toBe('Eft__element button');
 });
