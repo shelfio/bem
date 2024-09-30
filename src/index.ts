@@ -96,6 +96,7 @@ export const block = setup();
 export function createBlock(parentClass: string, classMap?: Record<string, string>) {
   return setup({classMap})(parentClass);
 }
+
 export function b(block: ReturnType<typeof createBlock>): string;
 export function b(block: ReturnType<typeof createBlock>, element: string): string;
 export function b(
