@@ -90,7 +90,6 @@ export const setup =
 
     return bemBlock.bind(null, {...defaultSettings, ...settings}, {name: blockName}) as BemBlock;
   };
-
 export const block = setup();
 
 export function createBlock(parentClass: string, classMap?: Record<string, string>) {
