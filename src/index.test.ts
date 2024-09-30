@@ -2,13 +2,13 @@ import {b, block, createBlock, setup} from './index.js';
 
 it('should not work with non empty string block', () => {
   try {
-    // @ts-expect-error
+    // @ts-expect-error test
     createBlock(undefined);
   } catch (error: any) {
     expect(error.toString()).toBe('Error: Block name should be non-empty string');
   }
   try {
-    // @ts-expect-error
+    // @ts-expect-error test
     createBlock(null);
   } catch (error: any) {
     expect(error.toString()).toBe('Error: Block name should be non-empty string');
