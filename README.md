@@ -51,7 +51,7 @@ const isActive = true;
 b('link', [isActive && 'active']); // nav-item__link nav-item__link--active
 
 const isSelected = true;
-b('link', {selecter: isSelected}); // nav-item__link nav-item__link--selected
+b('link', {selected: isSelected}); // nav-item__link nav-item__link--selected
 ```
 
 ### setup
