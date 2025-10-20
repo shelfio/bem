@@ -27,11 +27,6 @@
     "type-check": "tsc --noEmit",
     "prepare": "husky"
   },
-  "lint-staged": {
-    "*.{html,md,yml}": "prettier --write",
-    "*.{js,ts,json}": "eslint --fix",
-    ".circleci/config.yml": ".husky/validate-circleci-config.sh"
-  },
   "prettier": "@shelf/prettier-config",
   "jest": {
     "coverageThreshold": {
