@@ -5,4 +5,9 @@ export default [
   {
     ignores: ['**/coverage/', '**/lib/', 'renovate.json', 'tsconfig.json'],
   },
+  {
+    rules: {
+      'sonarjs/no-nested-assignment': 'off',
+    },
+  },
 ];
