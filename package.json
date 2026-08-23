@@ -71,5 +71,6 @@
   "lint-staged": {
     "*.{html,md,yml}": "prettier --write",
     "*.{js,ts,json}": "eslint --fix"
-  }
+  },
+  "packageManager": "pnpm@11.18.0"
 }
