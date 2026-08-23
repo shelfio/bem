@@ -18,10 +18,10 @@
   ],
   "scripts": {
     "build": "rm -rf lib/ && tsc",
-    "coverage": "yarn test --coverage",
-    "lint": "yarn lint:ci --fix",
+    "coverage": "pnpm test --coverage",
+    "lint": "pnpm lint:ci --fix",
     "lint:ci": "eslint .",
-    "prepack": "yarn build",
+    "prepack": "pnpm build",
     "size": "size-limit",
     "test": "jest",
     "type-check": "tsc --noEmit",
@@ -57,7 +57,7 @@
     "typescript": "5.8.3"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=20.19.0"
   },
   "publishConfig": {
     "access": "public"
