@@ -1,4 +1,4 @@
-# Shelf/bem [![CircleCI](https://app.circleci.com/pipelines/github/shelfio/bem)](https://circleci.com/gh/shelfio/xxxxxx/tree/master)![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+# Shelf/bem [![CircleCI](https://app.circleci.com/pipelines/github/shelfio/bem)](https://circleci.com/gh/shelfio/xxxxxx/tree/master)![](https://img.shields.io/badge/code_style-oxfmt-ff69b4.svg)
 
 Slim version of [bem-cn](https://github.com/albburtsev/bem-cn) without mixins, state and other stuff.
 
@@ -10,6 +10,7 @@ $ yarn add @shelf/bem
 
 ## Usage
 
+<!-- prettier-ignore -->
 ```js
 import {block} from '@shelf/bem';
 

@@ -1,4 +1,4 @@
-import feTsRules from '@shelf/eslint-config/frontend-typescript.js';
+import feTsRules from '@shelf/eslint-config/frontend-typescript-no-prettier.js';
 
 export default [
   ...feTsRules,
