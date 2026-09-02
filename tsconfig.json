@@ -1,6 +1,7 @@
 {
   "extends": "@shelf/tsconfig/frontend",
   "compilerOptions": {
+    "rootDir": "./src",
     "declaration": true,
     "moduleResolution": "nodenext",
     "module": "nodenext",
