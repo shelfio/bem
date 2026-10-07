@@ -19,6 +19,7 @@
   "scripts": {
     "build": "rm -rf lib/ && tsc",
     "coverage": "pnpm test --coverage",
+    "find-deadcode": "knip --no-progress",
     "lint": "oxfmt && eslint . --fix",
     "lint:ci": "oxfmt --check && eslint .",
     "prepack": "pnpm build",
@@ -59,6 +60,7 @@
     "eslint": "10.8.0",
     "husky": "9.1.6",
     "jest": "30.4.2",
+    "knip": "6.38.0",
     "lint-staged": "15.5.2",
     "oxfmt": "0.64.0",
     "size-limit": "11.2.0",
