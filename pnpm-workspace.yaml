@@ -4,3 +4,4 @@ lockfile: true
 allowBuilds:
   esbuild: false
   unrs-resolver: false
+pmOnFail: ignore
